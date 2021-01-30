@@ -39,6 +39,8 @@ The switch is a pretty standard 2P2T slide switch, a classic model that has been
 
 For the USB socket. I used a simple microUSB break-out board that is easy to find on AliExpress and the like, the dimensions are 14.1x12.7 mm. Of course you could use any other connector, USB-C if you want to be fancy. You could also look for a combination charge/discharge protection board that does everything to keep the battery in good shape and offers an indicator light.
 
+The screws I used are simple self-tapping screws, 3 larger screws that hold the parts of the main body and the motor mount together are 2.9 mm × 9 mm; and 4 smaller screws for the lid are 2.2 mm × 6.5 mm. Anything similar will probably work, if need be you could adjust the models.
+
 You also need some kind of *filter.* The 3D printed ‘filter’ is insufficient, its only purpose is to hold the actual finer filter in place. The filter should be a circle with 60 mm diameter, and it should be the thinnest possible material that still blocks fine dust. I simply peel and cut one layer from soft multi-ply toilet paper, which works very well.
 
 
