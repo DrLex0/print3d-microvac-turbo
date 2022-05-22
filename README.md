@@ -33,9 +33,9 @@ IIRC the motor I used came from SparkFun long ago and they no longer sell this m
 
 It looks like this motor is a cheap clone of the Mabuchi *RE-140RA.* You can get these clones from the usual sources like AliExpress. My first motor endured almost 2 years of quite intensive use before its brushes were completely gone. Two things probably contributed to wear:
 1. I hadn't sealed any of the holes in the housing, so fine dust that got past my crude filter could enter the motor,
-2. I added some oil to the bearings at regular intervals, to combat noise that was probably caused by the fine dust grinding away the bearings. I mostly added oil at the rear, because this was easily accessible (although the noise actually seems to come mostly from the front bearing). The oil mixed with the dust and became a grinding paste that lodged itself between the brushes and commutator, eventually destroying the brushes.
+2. I added some oil to the bearings at regular intervals, to combat noise that was probably caused by the fine dust grinding away the bearings. I mostly added oil at the rear, because this was easily accessible (and actually also most prone to wear and causing noise). The oil mixed with the dust and became a grinding paste that lodged itself between the brushes and commutator, eventually destroying the brushes.
 
-So, learning from the above, the lifespan can probably be improved by sealing all holes in the motor housing, and only applying minimal amounts of oil, preferably only to the front bearing.\
+So, learning from the above, the lifespan can probably be improved by sealing all holes in the motor housing, and only applying minimal amounts of oil or (preferably) grease.\
 I doubt whether genuine Mabuchis would last much longer. It makes sense to simply buy a stockpile of whatever you can get cheaply. Replacing the motor is easy, especially when using pluggable contacts.
 
 Any motor with roughly similar specs and dimensions should be suitable. If you use a different model of motor, you will need to model your own motor mount. It may be a good idea to try a *drone motor* which will certainly be able to displace a lot of air. However, keep in mind that there will be an upper limit to the speed you can drive the impeller before it explodes into bits. Make sure to wear eye protection if you plan to find this speed limit… Also consider that the impeller will tend to spin faster inside the enclosure than in free air, especially when the inlet is obstructed.
@@ -59,7 +59,8 @@ I used PLA for all parts except the filter ring (see below) and the impeller, wh
 
 It is highly recommended to print the `FilterRing` in an *elastic filament* like TPU. Otherwise there may be a considerable air leak around the filter edges. Whether you need **one** or **two** of these filter rings, depends on how flat and smooth you can make the interface between the `CenterPart` and `Filter` parts. If it is perfectly flat, this interface will offer a good enough seal on its own, otherwise an extra gasket is recommended. In my case the surfaces are perfect because I print on a glass bed, but an alternative is to sand and polish these two surfaces.
 
-The impeller is provided in two versions: the `clockwise` version is to be used if the axle of your motor turns clockwise when viewed from the front, which is the case with the motors I have tried. (In many cases you could of course just swap the wires if you printed the wrong version.)
+The impeller is provided in both `clockwise` and `countercw` (counter-clockwise) variants. Which one you need, depends on the direction the axle of your motor turns when viewed from the front. The motors I have tried, all turn clockwise when connected with their indicated polarity. You could of course just swap the wires if you printed the wrong version, although I'm not sure whether some motors aren't optimised to run in a certain direction.\
+There are 2 versions of the impeller, the `v2` version has blades of alternating height. It is hard to test this quantitatively, but in practice it appears to perform better.
 
 There are two lid designs, `cheese` has a pattern with round holes, `grid` is a regular grid and in theory offers slightly better airflow.
 
@@ -78,6 +79,8 @@ Cut a fine 60 mm diameter filter out of some thin material, like a single ply o
 
 The inlet has a tab on the side, the idea was to stick a piece of paper or plastic sheet to it, to act as a valve. This has proven unnecessary though when emptying the collector regularly. Junk will typically move to the sides and not fall back into the inlet unless too much has been collected.
 
+Due to imperfections of the 3D printing process, the impeller may be unbalanced enough that it causes annoying vibrations. Balancing the impeller is fairly easy: mount it on a perfectly straight 2 mm rod (like a drill bit), and let the axle roll on 2 ‘rails’ that are perfectly level and flat. If well balanced, the impeller should not seek out a specific orientation when nudged. If it does, first look for obvious blobs at the side that likes to point downwards, and remove them. If this does not suffice, stick some adhesive tape at the edge that likes to point upwards, and try to dose it such that the impeller no longer has any preferred position. Enjoy your vibration-free MicroVac!
+
 
 #### Wiring
 
@@ -90,6 +93,8 @@ There are some ready-to-use boards that have a microUSB (maybe nowadays even USB
 If you cannot find a motor that runs at a good speed between 3.8 and 4.2 V, you will have to add some kind of booster circuit.
 
 Refinements that are good practice: ensure there is a small ceramic capacitor as close to the motor terminals as possible, to filter out noise (may not be needed depending on the type of motor). Also, a decently sized capacitor across the battery (I used 470 nF), to buffer the initial inrush current when switching on the motor. This should also be placed as near to the motor as possible but must come before the switch. Without this capacitor, the protection circuit of my battery would sometimes engage because the inrush current could be high enough for the protection circuit to consider it a short-circuit.
+
+Using crimp terminals for the motor will make it easier to replace than when soldering it. The RE-140RA and clones have tabs that accept plain flat 2.8 mm terminal connectors. Ideally the connectors should be for 0.3 mm thick tabs but if hard to find, 0.5 mm connectors will also work after some careful squishing.
 
 
 ### Using
